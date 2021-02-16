@@ -5,9 +5,7 @@ import requests
 import getopt
 from time import sleep
 
-host = 'http://localhost:5000'
-# host = 'http://149.28.143.50:5010'
-# host = 'https://power.infrasoft.id'
+host = 'https://yoursitehere/'
 api_key = 'vpNbIfJvGrYjSWe44TLFfSIRFfYsP5Wa'
 computer_instance = ''
 computer_location = ''
