@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Computer Monitor | Dashboard
+    </title>
+    <!-- Favicon -->
+{#    <link href="{{ url_for('static', filename='assets/img/brand/favicon.png') }}" rel="icon" type="image/png">#}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="{{ url_for('static', filename='assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="{{ url_for('static', filename='assets/css/argon-dashboard.css') }}" rel="stylesheet" />
+    <!-- toastr -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}">
+    <style>
+        .card-stats {
+            margin-top: 32px;
+        }
+        .card-body {
+            padding: 10px !important;
+        }
+        .kartu {
+            max-width: 120px;
+            padding: 5px;
+        }
+        .kartu-outer {
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/img/favicon/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ url_for('static', filename='assets/img/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='assets/img/favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='assets/img/favicon/manifest.json') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='assets/img/favicon/ms-icon-144x144.png') }}">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="bg-gradient-primary">
+<div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Computer Control Panel</a>
+            <!-- User -->
+            <ul class="navbar-nav align-items-center d-none d-md-flex">
+                <li class="nav-item dropdown">
+                    <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img alt="Image placeholder" src="{{ url_for('static', filename='assets/img/theme/team-4-800x800.jpg') }}">
+                </span>
+                            <div class="media-body ml-2 d-none d-lg-block">
+                                <span class="mb-0 text-sm  font-weight-bold">Admin</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome!</h6>
+                        </div>
+                        <a href="#" class="dropdown-item">
+                            <i class="ni ni-single-02"></i>
+                            <span>My profile</span>
+                        </a>
+{#                        <a href="./examples/profile.html" class="dropdown-item">#}
+{#                            <i class="ni ni-settings-gear-65"></i>#}
+{#                            <span>Settings</span>#}
+{#                        </a>#}
+{#                        <a href="./examples/profile.html" class="dropdown-item">#}
+{#                            <i class="ni ni-calendar-grid-58"></i>#}
+{#                            <span>Activity</span>#}
+{#                        </a>#}
+{#                        <a href="./examples/profile.html" class="dropdown-item">#}
+{#                            <i class="ni ni-support-16"></i>#}
+{#                            <span>Support</span>#}
+{#                        </a>#}
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+            <div class="header-body">
+                <!-- Card stats -->
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <form>
+                            <div class="form-group">
+                                <label for="select-location" class="text-white text-uppercase"><strong>Lokasi</strong></label>
+                                <select class="form-control" id="select-location">
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" id="computer-group">
+{#                    {% for computer in computers %}#}
+{#                        <div class="col-xl-2 col-lg-6 computers" id="computer-{{ computer.computer_id }}">#}
+{#                            <div class="card card-stats mb-4 mb-xl-0">#}
+{#                                <div class="card-body">#}
+{#                                    <div class="row">#}
+{#                                        <div class="col">#}
+{#                                            <h5 class="card-title text-uppercase text-muted mb-0">{{ computer.computer_location }}</h5>#}
+{#                                            <span class="h2 font-weight-bold mb-0">{{ computer.computer_name }}</span>#}
+{#                                        </div>#}
+{#                                        <div class="col-auto status">#}
+{#                                            {% if computer.computer_power_status == 1 %}#}
+{#                                                <strong><span class="text-success mr-2">On</span></strong>#}
+{#                                            {% elif computer.computer_power_status == 2 %}#}
+{#                                                <strong><span class="text-danger mr-2">Re</span></strong>#}
+{#                                            {% else %}#}
+{#                                                <strong><span class="text-danger mr-2">Off</span></strong>#}
+{#                                            {% endif %}#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <p class="mt-3 mb-0 text-muted text-sm">#}
+{#                                        <button type="button" class="btn btn-icon btn-warning btn-sm pull-left" onclick="restart_computer('{{ computer.computer_id }}')">#}
+{#                                            <span class="btn-inner--icon"><i class="fas fa-refresh"></i></span>#}
+{#                                        </button>#}
+{#                                        <button type="button" class="btn btn-icon btn-danger btn-sm pull-right" onclick="shutdown_computer('{{ computer.computer_id }}')">#}
+{#                                            <span class="btn-inner--icon"><i class="fas fa-power-off"></i></span>#}
+{#                                        </button>#}
+{#                                    </p>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+                </div>
+            </div>
+        </div>
+    </div>
+{#    <div class="container-fluid mt--7">#}
+{#        <footer class="footer">#}
+{#            <div class="row align-items-center justify-content-xl-between">#}
+{#                <div class="col-xl-6">#}
+{#                    <div class="copyright text-center text-xl-left text-muted">#}
+{#                        &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-xl-6">#}
+{#                    <ul class="nav nav-footer justify-content-center justify-content-xl-end">#}
+{#                        <li class="nav-item">#}
+{#                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </footer>#}
+{#    </div>#}
+</div>
+<!--   Core   -->
+<script src="{{ url_for('static', filename='assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<!--   Optional JS   -->
+<script src="{{ url_for('static', filename='assets/js/plugins/chart.js/dist/Chart.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/plugins/chart.js/dist/Chart.extension.js') }}"></script>
+<!--   Argon JS   -->
+<script src="{{ url_for('static', filename='assets/js/argon-dashboard.min.js') }}"></script>
+{#<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>#}
+<!-- socket.io -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
+<!-- toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+{#<script>#}
+{#    window.TrackJS &&#}
+{#    TrackJS.install({#}
+{#        token: "ee6fab19c5a04ac1a32a645abde4613a",#}
+{#        application: "argon-dashboard-free"#}
+{#    });#}
+{#</script>#}
+
+<script>
+    // global variables
+    const url = window.location.href;
+    const arr = url.split("/");
+    const socket_url = arr[0] + "//" + arr[2];
+    const socket = io.connect(socket_url);
+    let computer_location = [];
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    $(document).ready(function () {
+        socket.on('receive_shutdown', function (data) {
+            if (data['status'] === 'OK') {
+                let computer_name = data['data']['name'];
+                let computer_location = data['data']['location'];
+                let notification = 'Perintah shutdown sudah terkirim ke ' + computer_name + ' (' + computer_location + ')';
+                toastr['success'](notification);
+            }
+        });
+        socket.on('receive_restart', function (data) {
+            if (data['status'] === 'OK') {
+                let computer_name = data['data']['name'];
+                let computer_location = data['data']['location'];
+                let notification = 'Perintah restart sudah terkirim ke ' + computer_name + ' (' + computer_location + ')';
+                toastr['success'](notification);
+            }
+        });
+        socket.on('receive_update', function (data) {
+            if (data['status'] === 'OK') {
+                let computer_id = data['data']['id'];
+                let power_status = data['data']['power_status'];
+                change_power_html(computer_id, power_status);
+
+                // notification
+                let computer_name = data['data']['name']
+                let computer_location = data['data']['location']
+                let notification;
+                if (power_status === 2) {
+                    notification = 'Komputer ' + computer_name + ' (' + computer_location + ') sedang restart'
+                } else if (power_status === 1) {
+                    notification = 'Komputer ' + computer_name + ' (' + computer_location + ') sudah menyala'
+                } else {
+                    notification = 'Komputer ' + computer_name + ' (' + computer_location + ') sudah mati'
+                }
+                toastr['info'](notification);
+            }
+        });
+        socket.on('receive_location', function (data) {
+            let select_location = $('#select-location');
+            select_location.empty();
+            computer_location = [];
+            $.each(data['computer'], function (i) {
+                let location = data['computer'][i]['location'];
+                if (!computer_location.includes(location)) {
+                    computer_location.push(location);
+                    select_location.append('<option value="' + location + '">' + location + '</option>');
+                }
+            });
+            // finally initalize computer group
+            initialize();
+        })
+        socket.on('receive_computer', function (data) {
+            $('#computer-group').empty();
+            $.each(data['computer'], function (i) {
+                let computer_id = data['computer'][i]['id'];
+                let computer_name = data['computer'][i]['name'];
+                let computer_location = data['computer'][i]['location'];
+                let computer_power_status = data['computer'][i]['power_status'];
+                let power_status;
+                if (computer_power_status === 1) {
+                    power_status = '<strong><span class="text-success mr-2">On</span></strong>';
+                } else if (computer_power_status === 2) {
+                    power_status = '<strong><span class="text-danger mr-2">Re</span></strong>';
+                } else {
+                    power_status = '<strong><span class="text-danger mr-2">Off</span></strong>';
+                }
+                let html = '<div class="d-flex computers kartu-outer" id="computer-' + computer_id + '">' +
+                    '                            <div class="card card-stats kartu"' +
+                    '                                <div class="card-body">' +
+                    '                                    <div class="row">' +
+                    '                                        <div class="col">' +
+                    '                                            <span class="card-title text-uppercase text-muted mb-0">' + computer_location + '</span>' + '<br/>' +
+                    '                                            <span class="h2 font-weight-bold mb-0">' + computer_name + '</span>' +
+                    '                                        </div>' +
+                    '                                        <div class="col-auto status">' +
+                                                                power_status +
+                    '                                        </div>' +
+                    '                                    </div>' +
+                    '                                    <p class="mt-3 mb-0 text-muted text-sm">' +
+                    '                                        <button type="button" class="btn btn-icon btn-warning btn-sm pull-left" onclick="restart_computer(\'' + computer_id + '\')">' +
+                    '                                            <span class="btn-inner--icon"><i class="fas fa-refresh"></i></span>' +
+                    '                                        </button>' +
+                    '                                        <button type="button" class="btn btn-icon btn-danger btn-sm pull-right" onclick="shutdown_computer(\'' + computer_id + '\')">' +
+                    '                                            <span class="btn-inner--icon"><i class="fas fa-power-off"></i></span>' +
+                    '                                        </button>' +
+                    '                                    </p>' +
+                    '                                </div>' +
+                    '                            </div>' +
+                    '                        </div>';
+                $('#computer-group').append(html);
+            })
+        })
+
+        get_location();
+
+        $('#select-location').on('change', function () {
+            get_computer_group($(this).val());
+        });
+    });
+
+    function change_power_html(id, power_status) {
+        let status = $('#computer-' + id + ' .status');
+        let html;
+        if (power_status === 1) {
+            html = '<strong><span class="text-success mr-2">On</span></strong>';
+            status.html(html);
+        } else if (power_status === 2) {
+            html = '<strong><span class="text-warning mr-2">Re</span></strong>';
+            status.html(html);
+        } else {
+            html = '<strong><span class="text-danger mr-2">Off</span></strong>';
+            status.html(html);
+        }
+    }
+
+    function shutdown_computer(id) {
+        socket.emit('send_shutdown', {
+            computer_id: id
+        });
+    }
+
+    function restart_computer(id) {
+        socket.emit('send_restart', {
+            computer_id: id
+        });
+    }
+
+    function get_location() {
+        socket.emit('send_location');
+    }
+
+    function get_computer_group(location) {
+        socket.emit('send_computer', {
+            location: location
+        });
+    }
+
+    function initialize() {
+        socket.emit('send_computer', {
+            location: $('#select-location').val()
+        });
+    }
+</script>
+</body>
+</html>
